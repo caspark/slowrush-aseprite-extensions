@@ -173,6 +173,57 @@ local function editHotspotPalette()
     end
 
     editHotspotsDialog:button{
+        text = "Defaults",
+        onclick = function()
+            local hotspots = {
+                {
+                    name = "eye",
+                    color = Color {
+                        -- cyan
+                        r = 0,
+                        g = 255,
+                        b = 255,
+                    }
+                },
+                {
+                    name = "attack",
+                    color = Color {
+                        -- pink
+                        r = 255,
+                        g = 0,
+                        b = 255,
+                    }
+                },
+                {
+                    name = "collider",
+                    color = Color {
+                        -- yellow
+                        r = 255,
+                        g = 255,
+                        b = 0,
+                    }
+                }
+            }
+            saveHotspots(hotspots)
+
+            if app.sprite then
+                local hotspotLayer = nil
+                for i, layer in ipairs(app.sprite.layers) do
+                    if layer.name == "hotspots" then
+                        hotspotLayer = layer
+                    end
+                end
+
+                if hotspotLayer == nil then
+                    hotspotLayer = app.sprite:newLayer()
+                    hotspotLayer.name = "hotspots"
+                end
+            end
+
+            editHotspotsDialog:close()
+            editHotspotPalette()
+        end
+    }:button{
         text = "Save",
         onclick = function()
             local hotspots = {}
