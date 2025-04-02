@@ -33,6 +33,11 @@ Caveats:
 * Sprite userdata must be empty or a valid JSON object.
 * Only up to 10 different types of hotspot are supported.
 
+See also:
+* https://github.com/balldrix/aseprite_hitbox_data_exporter - a layer per hotspot type and then generates json output for you
+* abandoned:
+  * the Aseprite devs have some intention to implement this [as a first-class thing](https://github.com/aseprite/aseprite/issues/722) (but it has been about 8 years so maybe don't hold your breath).
+  * https://github.com/kaiiboraka/Aseprite_Hitbox_Editor
 
 ## License
 
