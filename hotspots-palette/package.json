@@ -1,0 +1,21 @@
+{
+    "name": "hotspots-palette",
+    "displayName": "Hotspot Palette",
+    "description": "Manage JSON metadata for hotspots in sprite userdata",
+    "version": "1.0",
+    "author": {
+        "name": "Caspar"
+    },
+    "publisher": "slowrush.dev",
+    "license": "MIT",
+    "categories": [
+        "Scripts"
+    ],
+    "contributes": {
+        "scripts": [
+            {
+                "path": "./hotspots.lua"
+            }
+        ]
+    }
+}
