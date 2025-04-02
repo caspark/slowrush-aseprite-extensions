@@ -74,7 +74,7 @@ end
 
 -- Loads the hotspots from the active sprite's userdata.
 -- Returns a Lua table containing the hotspots or nil if there is an error.
-local function loadHotspots()
+local function loadHotspots(quiet)
     local sprite = app.sprite
     if not sprite then
         -- no active sprite so nothing to do
@@ -89,7 +89,9 @@ local function loadHotspots()
 
     local success, decodedData = pcall(json.decode, jsonString)
     if not success then
-        warnBadUserdata(jsonString)
+        if not quiet then
+            warnBadUserdata(jsonString)
+        end
         return nil
     end
 
@@ -149,7 +151,7 @@ local function editHotspotPalette()
         title = "Edit Hotspot Palette"
     }
 
-    local hotspots = loadHotspots()
+    local hotspots = loadHotspots(false)
     for i = 1, 10 do
         local hotspot = hotspots[i] or {
             name = "",
@@ -218,7 +220,7 @@ local function openHotspotPaletteDialog()
     }
 
     if app.sprite then
-        local hotspots = loadHotspots()
+        local hotspots = loadHotspots(false)
         for hotspotIndex, hotspot in ipairs(hotspots) do
             hotspotPaletteDialog:shades{
                 label = hotspot.name,
@@ -275,8 +277,8 @@ function init(plugin)
         if hotspotPaletteDialog then
             closeHotspotPaletteDialog()
         end
-        local hotspots = loadHotspots()
-        if #hotspots > 0 then
+        local hotspots = loadHotspots(true)
+        if hotspots and #hotspots > 0 then
             -- reopen the dialog to reflect the new sprite's hotspots
             openHotspotPaletteDialog()
         end
