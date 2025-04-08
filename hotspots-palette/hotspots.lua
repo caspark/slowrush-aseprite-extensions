@@ -1,6 +1,7 @@
 -- Hotspot Manager Plugin for Aseprite
 -- Global references to keep track of state
 local hotspotPaletteDialog = nil
+local hotspotPaletteSprite = nil
 local hotspotPaletteDialogBounds = false
 local hotspotSiteChangeListener = nil
 
@@ -267,6 +268,7 @@ local function openHotspotPaletteDialog()
         title = "Hotspots",
         onclose = function()
             hotspotPaletteDialog = nil
+            focus = false
         end
     }
 
@@ -324,6 +326,12 @@ function init(plugin)
 
     -- Listen for site changes to update the dialog if the sprite changes
     hotspotSiteChangeListener = app.events:on('sitechange', function()
+        if app.sprite == hotspotPaletteSprite then
+            -- sprite hasn't changed - ignore this event
+            return
+        end
+        hotspotPaletteSprite = app.sprite
+
         -- Check if our dialog is open
         if hotspotPaletteDialog then
             closeHotspotPaletteDialog()
