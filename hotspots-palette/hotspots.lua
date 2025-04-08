@@ -176,35 +176,31 @@ local function editHotspotPalette()
     editHotspotsDialog:button{
         text = "Defaults",
         onclick = function()
-            local hotspots = {
-                {
-                    name = "eye",
-                    color = Color {
-                        -- cyan
-                        r = 0,
-                        g = 255,
-                        b = 255,
-                    }
-                },
-                {
-                    name = "attack",
-                    color = Color {
-                        -- pink
-                        r = 255,
-                        g = 0,
-                        b = 255,
-                    }
-                },
-                {
-                    name = "collider",
-                    color = Color {
-                        -- yellow
-                        r = 255,
-                        g = 255,
-                        b = 0,
-                    }
+            local hotspots = {{
+                name = "eye",
+                color = Color {
+                    -- cyan
+                    r = 0,
+                    g = 255,
+                    b = 255
                 }
-            }
+            }, {
+                name = "attack",
+                color = Color {
+                    -- pink
+                    r = 255,
+                    g = 0,
+                    b = 255
+                }
+            }, {
+                name = "collider",
+                color = Color {
+                    -- yellow
+                    r = 255,
+                    g = 255,
+                    b = 0
+                }
+            }}
             saveHotspots(hotspots)
 
             if app.sprite then
@@ -307,7 +303,7 @@ local function openHotspotPaletteDialog()
     -- Show as a non-modal dialog
     hotspotPaletteDialog:show{
         bounds = hotspotPaletteDialogBounds,
-        wait = false,
+        wait = false
     }
 
 end
@@ -323,6 +319,15 @@ function init(plugin)
         group = "sprite_properties",
         onclick = openHotspotPaletteDialog
     }
+
+    if not hotspotPaletteDialogBounds then
+        hotspotPaletteDialogBounds = Rectangle {
+            x = 600,
+            y = 0,
+            w = 100,
+            h = 150
+        }
+    end
 
     -- Listen for site changes to update the dialog if the sprite changes
     hotspotSiteChangeListener = app.events:on('sitechange', function()
