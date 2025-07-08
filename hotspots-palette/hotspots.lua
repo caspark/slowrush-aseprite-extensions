@@ -200,6 +200,30 @@ local function editHotspotPalette()
                     g = 255,
                     b = 0
                 }
+            }, {
+                name = "pivot",
+                color = Color {
+                    -- green
+                    r = 0,
+                    g = 255,
+                    b = 0
+                }
+            }, {
+                name = "left",
+                color = Color {
+                    -- orange
+                    r = 255,
+                    g = 165,
+                    b = 0
+                }
+            }, {
+                name = "right",
+                color = Color {
+                    -- purple
+                    r = 128,
+                    g = 0,
+                    b = 128
+                }
             }}
             saveHotspots(hotspots)
 
