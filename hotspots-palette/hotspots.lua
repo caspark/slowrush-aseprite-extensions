@@ -224,6 +224,14 @@ local function editHotspotPalette()
                     g = 0,
                     b = 128
                 }
+            }, {
+                name = "attach",
+                color = Color {
+                    -- hot pink
+                    r = 255,
+                    g = 20,
+                    b = 147
+                }
             }}
             saveHotspots(hotspots)
 
