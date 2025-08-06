@@ -232,6 +232,14 @@ local function editHotspotPalette()
                     g = 20,
                     b = 147
                 }
+            }, {
+                name = "shell",
+                color = Color {
+                    -- blue
+                    r = 0,
+                    g = 0,
+                    b = 255
+                }
             }}
             saveHotspots(hotspots)
 
