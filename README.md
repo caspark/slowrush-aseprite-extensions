@@ -1,6 +1,6 @@
 # Aseprite Extensions
 
-A collection of extensions for Aseprite to enhance my pixel art workflow.
+A collection of extensions for Aseprite to enhance my pixel art workflow, used for [my games](https://slowrush.dev) (who am I kidding? I only have the one).
 
 To build all extensions, run `./build-all.sh`; extensions will be output to `target/`, and they can be installed into Aseprite via `Edit >> Preferences >> Extensions >> Add Extension`.
 
