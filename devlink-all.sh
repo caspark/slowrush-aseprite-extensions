@@ -26,3 +26,4 @@ function devlink() {
 }
 
 devlink hotspots-palette
+devlink named-palette

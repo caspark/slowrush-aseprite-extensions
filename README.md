@@ -39,6 +39,36 @@ See also:
   * the Aseprite devs have some intention to implement this [as a first-class thing](https://github.com/aseprite/aseprite/issues/722) (but it has been about 8 years so maybe don't hold your breath).
   * https://github.com/kaiiboraka/Aseprite_Hitbox_Editor
 
+## Named Palette
+
+A simple palette picker that loads named colors from a JSON file. This is useful if you have a specific color palette you want to reference frequently across different sprites.
+
+Unlike the Hotspot Palette extension, this extension:
+- Reads colors from a JSON file (user-selectable location)
+- Does not store any data in sprite properties
+- Does not allow editing the palette (you must edit the JSON file directly)
+- Works independently of which sprite is open
+- Remembers your chosen palette file between sessions
+
+To use:
+1. Install the extension
+2. Go to `View >> Named Palette` to open the palette picker
+3. Click "Load Palette" to select a JSON file containing your palette
+4. The palette will be remembered and loaded automatically on next startup
+5. Left-click on colors to set foreground color, right-click to set background color
+
+The JSON file format:
+```json
+{
+  "palette": [
+    {"name": "red", "color": "ff0000"},
+    {"name": "green", "color": "00ff00"}
+  ]
+}
+```
+
+A default `named-palette.json` file is included in the extension directory (`~/.config/aseprite/extensions/named-palette/` on Linux) which you can use as a starting point or reference.
+
 ## License
 
 MIT

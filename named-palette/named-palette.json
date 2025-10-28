@@ -1,0 +1,36 @@
+{
+  "palette": [
+    {
+      "name": "red",
+      "color": "ff0000"
+    },
+    {
+      "name": "green",
+      "color": "00ff00"
+    },
+    {
+      "name": "blue",
+      "color": "0000ff"
+    },
+    {
+      "name": "cyan",
+      "color": "00ffff"
+    },
+    {
+      "name": "magenta",
+      "color": "ff00ff"
+    },
+    {
+      "name": "yellow",
+      "color": "ffff00"
+    },
+    {
+      "name": "white",
+      "color": "ffffff"
+    },
+    {
+      "name": "black",
+      "color": "000000"
+    }
+  ]
+}

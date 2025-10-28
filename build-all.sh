@@ -15,3 +15,4 @@ function build() {
 mkdir target/
 
 build hotspots-palette
+build named-palette
